@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class Main{
+
+public static void exibir(String produto, Double valor, Double dinheiro){
+    System.out.printf("Você comprou um produto (%s) por %.2f e entregou ao vendedor %.2f em dinheiro. Você vai receber %.2f de troco. Volte sempre!\n", produto, valor, dinheiro, dinheiro-valor);
+}
+public static Double desconto(String produto, Double valor, Integer desconto){
+    System.out.printf("Você comprou um produto (%s) por %.2f e acaba de ganhar um desconto de %d%%. Assim você vai pagar apenas %.2f pelo seu produto. Volte sempre!\n", produto, valor, desconto, valor-(valor*(desconto/100.0)));
+    return valor-(valor*(desconto/100.0));
+}
+	public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+		System.out.printf("Insira Produto: ");
+        String produto = scanner.nextLine();
+        
+        System.out.printf("\nInsira valor: ");
+        Double valor = scanner.nextDouble();
+        
+        System.out.printf("\nAgora insira o valor que voce vai pagar: ");
+        Double dinheiro = scanner.nextDouble();
+        
+        exibir(produto, valor, dinheiro);
+        valor = desconto(produto, valor, 10);
+        exibir(produto, valor, dinheiro);
+	}
+}
