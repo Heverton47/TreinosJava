@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class Main{
+    
+    public static void escada(int parametro){
+        for(int i = 1; i <= parametro; i++){
+            for (int j = 0; j < i; j++){
+                System.out.print("* ");
+            }
+            System.out.printf("\n");
+        }
+    }
+    
+	public static void main(String[] args) {
+	    Scanner scanner = new Scanner(System.in);
+		System.out.print("Me apresente o tamanho da escada: ");
+		int parametro = scanner.nextInt();
+		
+		escada(parametro);
+
+	scanner.close();	
+	}
+}
