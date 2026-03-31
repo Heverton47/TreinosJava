@@ -1,0 +1,35 @@
+import java.util.*;
+
+public class Main{
+    
+    public static double media(String metodo, double nota1, double nota2, double nota3){
+        if(metodo.equals("A")){
+            return (nota1 + nota2 + nota3) / 3;    
+        }   
+        else if(metodo.equals("P")){
+            return ((nota1 * 5) + (nota2 * 3) + (nota3 * 2))/ (5 + 3 + 2);
+        }
+        else{
+            System.out.println("Método errado, insira novamente!");
+            return -1;
+        }
+    }
+    
+	public static void main(String[] args) {
+	    Scanner scanner = new Scanner(System.in);
+		System.out.println("Poderia me informar o seu método?\n 'A' = media aritmetica \n 'P' = media ponderada");
+		String metodo = scanner.nextLine();
+		
+		System.out.println("Agora me apresente 3 notas:");
+		
+		Double nota1 = scanner.nextDouble();
+		Double nota2 = scanner.nextDouble();
+		Double nota3 = scanner.nextDouble();
+		
+		Double resultado = media(metodo, nota1, nota2, nota3);
+		
+		System.out.printf("A media %s resultante é %.2f", metodo, resultado);
+		
+	scanner.close();	
+	}
+}
