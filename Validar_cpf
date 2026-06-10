@@ -1,0 +1,62 @@
+import java.util.*;
+
+public class App {
+    public static void main(String[] args) throws Exception {
+        Scanner scanner = new Scanner(System.in);
+        String cpf = "22233366638";
+        boolean igual = true;
+
+        for (int i = 0; i < 10; i++) {
+            if(cpf.charAt(i) != cpf.charAt(i+1)){
+                System.out.println("Seu cpf tem digitos diferentes!");
+                igual = false;
+                break;
+            }
+        }
+        if(igual == true){
+            System.out.print("Seu cpf eh invalido(digitos iguais)");
+            return;
+        }
+
+        int soma = 0;
+
+        for (int i = 0; i < 9; i++) {
+            soma += (cpf.charAt(i)-48) * (10-i);
+        }
+        int sobra = soma % 11;
+        int verificar = 0;
+
+        if(11 - sobra > 9){
+        verificar = 0;
+        }
+        else{
+        verificar = 11 - sobra;
+        }
+
+        if((cpf.charAt(9)-48) != verificar){
+            System.out.println("Seu cpf eh inválido");
+            return;
+        }
+
+        soma = 0;
+
+        for (int i = 0; i < 10; i++) {
+            soma += (cpf.charAt(i)-48) * (11-i);
+        }
+        sobra = soma % 11;
+        verificar = 0;
+
+        if(11 - sobra > 9){
+        verificar = 0;
+        }
+        else{
+        verificar = 11 - sobra;
+        }
+
+        if((cpf.charAt(10)-48) != verificar){
+            System.out.println("Seu cpf eh inválido");
+            return;
+        }
+    System.out.println("Seu cpf eh valido!");        
+    }
+}
